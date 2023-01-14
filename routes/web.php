@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ExcelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,15 @@ Route::POST('/products/create',[ProductsController::class,'store'])->name('produ
 */
 
 Route::resource('products',ProductsController::class);
+/*
+Route::get('exports/prod',[App\Http\Controllers\ExcelController::class, 'ProductExport']);
+*/
+
+Route::get('/prod', function () {
+    return view('products.prod');
+})->name('products.prod');
 
 
+Route::get('/prod',[\App\Http\Controllers\ExcelController::class,'ProductsExport'])->name('products.ProductsExport');
 
+Route::resource('product',ExcellController::class);

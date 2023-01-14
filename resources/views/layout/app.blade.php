@@ -31,6 +31,9 @@
                     <a class="nav-link" href="{{route('products.index')}}"><i class="fa-sharp fa-solid fa-cart-shopping"></i>   Ver Productos</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('products.prod')}}"><i class="fa-solid fa-download"></i>   Descargar productos</a>
+                </li>
 
             </ul>
         </div>

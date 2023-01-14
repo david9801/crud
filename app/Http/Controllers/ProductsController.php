@@ -41,6 +41,19 @@ class ProductsController extends Controller
         return view('products.edit',compact('product'));
     }
 
+    public function update(Request $request,$id){
+        $request->validate([
+            'title' => 'required|max:20',
+            'country' => 'required|max:20',
+            'price' => 'required|gte:5'
+        ]);
+        $product = Product::find($id);
+        $product->title =  $request->title;
+        $product->country = $request->country;
+        $product->price = $request->price;
+        $product->save();
+        return redirect()->route('products.index');
+    }
 
     public function destroy($id): \Illuminate\Http\RedirectResponse
     {
