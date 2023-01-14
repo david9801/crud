@@ -32,7 +32,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('products.prod')}}"><i class="fa-solid fa-download"></i>   Descargar productos</a>
+                    <a class="nav-link" href="{{route('products.export')}}"><i class="fa-solid fa-download"></i>   Descargar productos</a>
                 </li>
 
             </ul>

@@ -33,11 +33,11 @@ Route::resource('products',ProductsController::class);
 Route::get('exports/prod',[App\Http\Controllers\ExcelController::class, 'ProductExport']);
 */
 
-Route::get('/prod', function () {
-    return view('products.prod');
-})->name('products.prod');
+Route::get('/export', function () {
+    return view('products.export');
+})->name('products.export');
 
 
-Route::get('/prod',[\App\Http\Controllers\ExcelController::class,'ProductsExport'])->name('products.ProductsExport');
+Route::get('/do-export',[\App\Http\Controllers\ExcelController::class,'ProductsExport'])->name('product.ProductsExport');
 
 Route::resource('product',ExcellController::class);
