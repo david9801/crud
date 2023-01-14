@@ -9,7 +9,7 @@
 
     </style>
 
-    <form action="{{route('products.store')}}" method="POST">
+    <form action="{{route('products.store')}}" method="POST" class="text-center">
         @csrf
         <h2> Crear Productos</h2>
         <input type="text" class="bg-light-blue text-center" placeholder="Title" name="title">

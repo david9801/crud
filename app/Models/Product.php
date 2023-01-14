@@ -13,7 +13,4 @@ class Product extends Model
         'country',
         'price'
     ];
-
-
-
 }

@@ -15,15 +15,17 @@ use App\Http\Controllers\ProductsController;
 
 
 Route::get('/', function () {
-    return view('layout.app');
-});
+    return view('products.hello');
+})->name('products.hello');
 
-
+/*
 Route::get('/products',[ProductsController::class,'index'])->name('products.index');
 
 Route::get('/products/create',[ProductsController::class,'create'])->name('products.create');
 
 Route::POST('/products/create',[ProductsController::class,'store'])->name('products.store');
+
+*/
 
 Route::resource('products',ProductsController::class);
 

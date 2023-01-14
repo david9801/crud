@@ -5,6 +5,9 @@
         .bg-light-red{
             background-color: rgba(254, 0, 0, 0.92);
         }
+        .bg-light-green{
+            background-color: rgb(17, 254, 0);
+        }
     </style>
     <table class="table">
         <thead>
@@ -31,8 +34,10 @@
                 <form action="{{route('products.destroy',$row->id)}}" method="POST">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="bg-light-red">Eliminar </button>
+                    <button type="submit" class="bg-light-red px-3 py-1 rounded-sm"><i class="fa-solid fa-trash"></i> </button>
                 </form>
+                <a href="{{route('products.edit', $row->id)}}" class="bg-light-green px-3 py-1 rounded-sm"> <i class="fa-solid fa-pen-to-square"></i></a>
+
             </td>
 
 
