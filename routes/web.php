@@ -29,9 +29,6 @@ Route::POST('/products/create',[ProductsController::class,'store'])->name('produ
 */
 
 Route::resource('products',ProductsController::class);
-/*
-Route::get('exports/prod',[App\Http\Controllers\ExcelController::class, 'ProductExport']);
-*/
 
 Route::get('/export', function () {
     return view('products.export');
