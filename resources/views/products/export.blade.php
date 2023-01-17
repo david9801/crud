@@ -8,7 +8,7 @@
         }
 
     </style>
-<div class="text-center"><h2>   <i class="fa-sharp fa-solid fa-file-excel"></i>   Descargar fichero csv (EXCEL):</h2></div>
+<div class="text-center"><h2>   <i class="fa-sharp fa-solid fa-file-excel"></i>   Descargar fichero EXCEL:</h2></div>
 
 <form action="{{route('product.ProductsExport')}}" method="get" class="text-center">
     @csrf

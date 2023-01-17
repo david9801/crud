@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <h1>BIENVENIDO A NUESTRO PROGRAMA PARA GUARDAR, ELIMINAR Y EDITAR PRODUCTOS</h1>
+    <h1>BIENVENIDO {{Auth::user()->name}}</h1>
     <h2>Puedes guardar ... </h2>
 
 
