@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+
 class ProductsController extends Controller
 {
     public function index(){
@@ -29,22 +31,20 @@ class ProductsController extends Controller
         $request->validate([
             'title' => 'required|max:20',
             'country' => 'required|max:20',
-            'price' => 'required|gte:5',
-            'user_id' =>'required|integer|gte:1'
+            'price' => 'required|gte:5'
         ]);
 
         $product=new Product();
         $product->title = $request->title;
         $product->country = $request->country;
         $product->price = $request->price;
-        $product->user_id = $request->user_id;//no asigna
+        $product->user_id = Auth::user()->id;
         $product->save();
         return redirect()->route('products.index')->with('sucess','Producto salvado');
     }
 
     public function edit($id)
     {
-
         $product = Product::find($id);
         return view('products.edit',compact('product'));
     }

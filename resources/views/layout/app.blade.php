@@ -94,11 +94,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('products.export')}}"><i class="fa-solid fa-download"></i>   Descargar productos</a>
                 </li>
-                @auth
-                    <form action="{{route('log-out')}}" method="POST" class="text-center">
-                        <button type="submit" class="btn btn-primary" > <i class="fa-solid fa-right-from-bracket"> Usuario {{Auth::user()->name}}</i> </button>
-                        @csrf
-                    </form>
+                    @auth
+                        <form action="{{route('log-out')}}" method="POST" class="text-center">
+                            <button type="submit" class="btn btn-primary" > <i class="fa-solid fa-right-from-bracket"> Usuario {{Auth::user()->name}}</i> </button>
+                            @csrf
+                        </form>
+
                 @endauth
             </ul>
         </div>

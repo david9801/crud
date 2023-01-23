@@ -59,5 +59,7 @@ Route::POST('/do-register',[RegisterController::class,'store'])->name(('do-regis
 Route::get('/login',[SessionsController::class,'login'])->name('login');
 Route::POST('/do-login',[SessionsController::class,'doLogin'])->name('do-login');
 
+
+
 Route::POST('/logout',[SessionsController::class,'logout'])->name('log-out')->middleware('auth');
 

@@ -28,11 +28,13 @@
         <input type="text" class="bg-light-blue text-center" placeholder="Title" name="title">
         <input type="text" class="bg-light-blue text-center" placeholder="Country" name="country">
         <input type="number" class="bg-light-blue text-center" placeholder="Price" name="price">
+        <!--"
         <select type="select"  name="user_id" class="bg-light-blue text-center">
             @foreach(\App\Models\User::all() as $user)
                 <option value = "{{$user->id}}"  >     {{$user->name}}    </option>
             @endforeach
         </select>
+        "-->
         <button type="submit" class="btn btn-primary" > SEND</button>
     </form>
 @endsection
