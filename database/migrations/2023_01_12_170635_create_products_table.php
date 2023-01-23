@@ -19,7 +19,13 @@ class CreateProductsTable extends Migration
             $table->string('country');
             $table->decimal('price',8,2);
             $table->timestamps();
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained('users');
+            //user_id es un id foraneo de la tabla products que va asociada a la tabla users
+
         });
+
     }
 
     /**

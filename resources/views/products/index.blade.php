@@ -30,6 +30,7 @@
             <td>  {{ $row->price  }}  </td>
             <td>  {{ $row->created_at  }}  </td>
             <td>  {{ $row->updated_at  }}  </td>
+
             <td>
 
                 <!-- Button trigger modal -->

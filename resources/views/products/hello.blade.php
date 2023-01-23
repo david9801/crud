@@ -3,11 +3,28 @@
 
 @section('content')
 
+    <style>
+       .carousel{
+           width: 40%;
+           height: 50px;
+           margin: 0 auto; /* para centrar el carrusel */
+           padding-bottom: 100px;
+        }
+       footer {
+           height: 10px;
+           position: absolute;
+           bottom: 0;
+           width: 100%;
+           text-align: center;
+       }
+    </style>
+
+
     <h1>BIENVENIDO {{Auth::user()->name}}</h1>
     <h2>Puedes guardar ... </h2>
 
 
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <div id="carouselExampleCaptions" class="carousel slide" name="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>

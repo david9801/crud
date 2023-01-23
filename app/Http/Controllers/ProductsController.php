@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 class ProductsController extends Controller
 {
     public function index(){
 
-        $products = Product::all();
+        $user = auth()->user();
+        //nos aseguramos que el usuario esta autenticado
+        $products = $user->productS;
+        //asignamos los productos de solo el usuario que esta auth
+        //echo $products;
         return view('products.index',compact('products'));
-    }
 
+    }
     public function create(){
 
         return view('products.create');
@@ -23,13 +29,15 @@ class ProductsController extends Controller
         $request->validate([
             'title' => 'required|max:20',
             'country' => 'required|max:20',
-            'price' => 'required|gte:5'
+            'price' => 'required|gte:5',
+            'user_id' =>'required|integer|gte:1'
         ]);
 
         $product=new Product();
         $product->title = $request->title;
         $product->country = $request->country;
         $product->price = $request->price;
+        $product->user_id = $request->user_id;//no asigna
         $product->save();
         return redirect()->route('products.index')->with('sucess','Producto salvado');
     }

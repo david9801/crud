@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Exports\ProductsExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\UsersExport;
 class ExcelController extends Controller
 {
     /**
@@ -15,8 +14,9 @@ class ExcelController extends Controller
      */
     public function ProductsExport()
     {
+        $user = auth()->user()->name;
+        return Excel::download(new ProductsExport(), $user.'-products.xlsx');
 
-        return Excel::download(new ProductsExport(), 'products.xlsx');
 
     }
 }

@@ -9,24 +9,13 @@
     .dark-mode .card{
         background-color: #4a5568;
     }
-</style>
+    footer {
 
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <!-- FontAwesome personal-->
-    <script src="https://kit.fontawesome.com/06c6f7ab73.js" crossorigin="anonymous"></script>
-    <!-- Titulo-->
-    <title>@yield('title') - Productos </title>
-</head>
-
-
-<style>
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
     /* Estilos para el modo claro */
     .bg-light {
         background-color: #ffffff;
@@ -43,6 +32,20 @@
     }
 
 </style>
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- FontAwesome personal-->
+    <script src="https://kit.fontawesome.com/06c6f7ab73.js" crossorigin="anonymous"></script>
+    <!-- Titulo-->
+    <title>@yield('title') - Productos </title>
+</head>
 
 <body class="bg-light">
 <button class="btn btn-light" id="lightModeBtn"><i class="fa-sharp fa-solid fa-sun"></i> Modo claro</button>
@@ -72,12 +75,12 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('login')}} "><i class="fa-sharp fa-solid fa-user"></i> Login Usuario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('register')}} "><i class="fa-sharp fa-solid fa-user"></i> Crear Usuario</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('login')}} "><i class="fa-sharp fa-solid fa-user"></i> Login Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('register')}} "><i class="fa-sharp fa-solid fa-user"></i> Crear Usuario</a>
+                    </li>
                 @endguest
 
                 <li class="nav-item">
@@ -92,10 +95,10 @@
                     <a class="nav-link" href="{{route('products.export')}}"><i class="fa-solid fa-download"></i>   Descargar productos</a>
                 </li>
                 @auth
-                <form action="{{route('log-out')}}" method="POST" class="text-center">
-                    <button type="submit" class="btn btn-primary" > <i class="fa-solid fa-right-from-bracket"> Usuario {{Auth::user()->name}}</i> </button>
-                    @csrf
-                </form>
+                    <form action="{{route('log-out')}}" method="POST" class="text-center">
+                        <button type="submit" class="btn btn-primary" > <i class="fa-solid fa-right-from-bracket"> Usuario {{Auth::user()->name}}</i> </button>
+                        @csrf
+                    </form>
                 @endauth
             </ul>
         </div>
@@ -107,7 +110,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 @yield('content')
 <footer>
-    <p>Página web hecha en 2023</p>
+    <div class="card text-center">
+        <div class="card-header">
+            CRUD
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Página web hecha con Laravel</h5>
+            <p class="card-text">Sígueme en github! </p>
+            <a href="https://github.com/david9801" class="btn btn-primary">Go to my github</a>
+        </div>
+        <div class="card-footer text-muted">
+            2023
+        </div>
+    </div>
 </footer>
 </body>
 </html>
