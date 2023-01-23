@@ -29,9 +29,9 @@ Route::POST('/products/create',[ProductsController::class,'store'])->name('produ
 Route::resource('products',ProductsController::class)->middleware('auth');
 Route::get('/export', function () {
     return view('products.export');
-})->name('products.export');
-Route::get('/do-export',[\App\Http\Controllers\ExcelController::class,'ProductsExport'])->name('product.ProductsExport');
-Route::resource('product',ExcelController::class);
+})->name('products.export')->middleware('auth');
+Route::get('/do-export',[\App\Http\Controllers\ExcelController::class,'ProductsExport'])->name('product.ProductsExport')->middleware('auth');
+Route::resource('product',ExcelController::class)->middleware('auth');
 
 /*
  * Usuarios: tanto VIEW como NAME han de ser iguales, en URI pongo practicamente lo que quiera
@@ -59,5 +59,5 @@ Route::POST('/do-register',[RegisterController::class,'store'])->name(('do-regis
 Route::get('/login',[SessionsController::class,'login'])->name('login');
 Route::POST('/do-login',[SessionsController::class,'doLogin'])->name('do-login');
 
-Route::POST('/logout',[SessionsController::class,'logout'])->name('log-out');
+Route::POST('/logout',[SessionsController::class,'logout'])->name('log-out')->middleware('auth');
 
