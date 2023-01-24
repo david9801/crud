@@ -21,6 +21,13 @@
 
 
     <h1>BIENVENIDO {{Auth::user()->name}}</h1>
+    @if(@Auth::user()->hasRole('cliente'))
+        <h2>Eres un cliente</h2>
+    @endif
+    @if(@Auth::user()->hasRole('admin'))
+        <h2>Eres un admin</h2>
+    @endif
+
     <h2>Puedes guardar ... </h2>
 
 

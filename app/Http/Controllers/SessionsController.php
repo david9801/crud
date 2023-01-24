@@ -35,7 +35,7 @@ class SessionsController extends Controller
 
 
         // Inicio de sesión fallido
-        return back()->withErrors(['email' => 'Estas credenciales no coinciden con nuestros regitros']);
+        return back()->withErrors(['email' => 'Estas credenciales no coinciden con nuestros registros']);
     }
 
     public function logout(Request $request)

@@ -4,7 +4,7 @@
 @section('content')
 
 
-<h2>Pagina privada</h2>
+<h2>Pagina privada para admins</h2>
 
 
 @endsection

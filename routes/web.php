@@ -63,3 +63,8 @@ Route::POST('/do-login',[SessionsController::class,'doLogin'])->name('do-login')
 
 Route::POST('/logout',[SessionsController::class,'logout'])->name('log-out')->middleware('auth');
 
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/secret', function () {
+        return view('usi.secret');
+    })->name('usi.secret');
+});

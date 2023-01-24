@@ -74,7 +74,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                @guest
+                @auth
+                    @if(auth()->user()->hasRole('admin'))
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{route('usi.secret')}} "><i class="fa-sharp fa-solid fa-user"></i> Private</a>
+                        </li>
+                    @endif
+                @endauth
+
+
+            @guest
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('login')}} "><i class="fa-sharp fa-solid fa-user"></i> Login Usuario</a>
                     </li>

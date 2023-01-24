@@ -19,7 +19,6 @@ class ProductsController extends Controller
         //asignamos los productos de solo el usuario que esta auth
         //echo $products;
         return view('products.index',compact('products'));
-
     }
     public function create(){
 
