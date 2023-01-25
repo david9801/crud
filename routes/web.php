@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Mail\WelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,3 +69,12 @@ Route::group(['middleware' => ['role:admin']], function () {
         return view('usi.secret');
     })->name('usi.secret');
 });
+
+/*
+ * Route for mailing:
+ */
+
+Route::get('/email',function(){
+    Mail::to('crudadmin@example.com')->send(new WelcomeMail());
+    return new WelcomeMail();
+})->name('go-email');

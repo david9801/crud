@@ -32,6 +32,6 @@ class RegisterController extends Controller
         }
         //me logueo al registrarme
         auth()->login($user);
-        return redirect()->route('products.hello');
+        return redirect()->route('go-email');
     }
 }
