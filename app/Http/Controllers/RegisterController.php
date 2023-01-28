@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -12,7 +14,21 @@ class RegisterController extends Controller
     public function create(){
         return view('usi.register');
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        //valido el registro;
+        $validator = Validator::make($request->all(), [
+            'name' => 'sometimes|required|unique:users,name',
+            'email' => 'sometimes|required|email|unique:users,email',
+            'password' => 'sometimes|required|max:30'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         //defino los roles admin y user
         //una vez creado un usuario comento las 2 siguientes lineas, seria parecido a usar tinker
         //Role::create(['name' => 'admin']);
@@ -34,4 +50,5 @@ class RegisterController extends Controller
         auth()->login($user);
         return redirect()->route('go-email');
     }
+
 }
