@@ -13,10 +13,6 @@
             margin: 0 auto;
         }
     </style>
-
-
-
-
         <form class="text-center" action="{{route('do-register')}}" method="POST" >
             @csrf
             <div class="mb-3">

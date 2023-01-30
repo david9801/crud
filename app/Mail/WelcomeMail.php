@@ -30,4 +30,5 @@ class WelcomeMail extends Mailable
     {
         return $this->markdown('emails.welcome');
     }
+
 }

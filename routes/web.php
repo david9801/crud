@@ -53,7 +53,6 @@ Route::get('/privada11', function () {
 
 
 
-
 Route::get('/register',[RegisterController::class,'create'])->name('register');
 Route::POST('/do-register',[RegisterController::class,'store'])->name(('do-register'));
 
@@ -74,7 +73,11 @@ Route::group(['middleware' => ['role:admin']], function () {
  * Route for mailing:
  */
 
+
+
+
 Route::get('/email',function(){
     Mail::to('crudadmin@example.com')->send(new WelcomeMail());
     return new WelcomeMail();
 })->name('go-email');
+
