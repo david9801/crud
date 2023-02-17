@@ -54,10 +54,8 @@
                                 <form action="{{route('products.destroy',$row->id)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="bg-light-red ">Eliminar</i> </button>
-
+                                    <button type="submit" class="bg-light-red ">Eliminar </button>
                                 </form>
-
                             </div>
                         </div>
                     </div>

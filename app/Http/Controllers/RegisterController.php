@@ -41,7 +41,7 @@ class RegisterController extends Controller
         //asigno roles a los registros-> un admin y el resto users
         //asignar rol
         //$user->assignRole('admin');
-        if((Str::endsWith($user->email, 'admin.com'))||(Str::endsWith($user->email, 'admin.es') ) {
+        if((Str::endsWith($user->email, 'admin.com'))||(Str::endsWith($user->email, 'admin.es')) ) {
             $user->assignRole('admin');
         }
         else {
